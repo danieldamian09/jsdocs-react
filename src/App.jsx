@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./App.css";
 
 
 export default function App() {
+
+  const [titulo, setTitulo] = useState("");
+  const [textoCodificado, setTextoCodificado] = useState("")
+  const [textoDecodificado, setTextoDecodificado] = useState("")
+
+  const modificarTitulo = (e) => setTitulo(e.target.value);
+
+  const codificarTexto = (e) => setTextoCodificado(e.target.value)
+
+  const decodificarTexto = (e) => setTextoDecodificado(e.target.value)
   
   return (
     <div className="App">
@@ -20,9 +30,10 @@ export default function App() {
             type="text"
             placeholder="Ingresa el texto aquí"
             id="titulo"
+            onBlur={modificarTitulo}
           />
           <strong>
-            Resultado: <span>{}</span>
+            Resultado: <span>{titulo}</span>
           </strong>
         </div>
       </section>
@@ -34,9 +45,10 @@ export default function App() {
             type="text"
             placeholder="Ingresa el texto aquí"
             id="textoACodificar"
+            onBlur={codificarTexto}
           />
           <strong>
-            Resultado: <span>{}</span>
+            Resultado: <span>{textoCodificado}</span>
           </strong>
         </div>
       </section>
@@ -48,9 +60,10 @@ export default function App() {
             type="text"
             placeholder="Ingresa el texto aquí"
             id="textoADecodificar"
+            onBlur={decodificarTexto}
           />
           <strong>
-            Resultado: <span>{}</span>
+            Resultado: <span>{textoDecodificado}</span>
           </strong>
         </div>
       </section>
