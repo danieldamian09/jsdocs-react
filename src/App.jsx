@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { codificar, decodificar, normalizar } from '../helpers/stringMetodo';
 import "./App.css";
-
 
 export default function App() {
 
@@ -8,11 +8,12 @@ export default function App() {
   const [textoCodificado, setTextoCodificado] = useState("")
   const [textoDecodificado, setTextoDecodificado] = useState("")
 
-  const modificarTitulo = (e) => setTitulo(e.target.value);
 
-  const codificarTexto = (e) => setTextoCodificado(e.target.value)
+  const modificarTitulo = (e) => setTitulo(normalizar(e.target.value));
 
-  const decodificarTexto = (e) => setTextoDecodificado(e.target.value)
+  const codificarTexto = (e) => setTextoCodificado(codificar(e.target.value))
+
+  const decodificarTexto = (e) => setTextoDecodificado(decodificar(e.target.value))
   
   return (
     <div className="App">
